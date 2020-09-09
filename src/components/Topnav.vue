@@ -1,13 +1,17 @@
 <template>
 <div class="topnav">
-  <svg class="logo">
-    <use xlink:href="#icon-wheel"></use>
-  </svg>
+  <router-link to="/" class="logo-wrapper">
+    <svg class="logo">
+      <use xlink:href="#icon-wheel"></use>
+    </svg>
+  </router-link>
   <ul class="menu">
     <li>文档</li>
     <li>关于</li>
   </ul>
-  <span class="toggleAside" @click="toggleMenu"></span>
+  <svg v-if="toggleButtonVisible" class="toggleAside" @click="toggleMenu">
+    <use xlink:href="#icon-menu" />
+  </svg>
 </div>
 </template>
 
@@ -17,6 +21,12 @@ import {
   Ref
 } from "vue";
 export default {
+  props: {
+    toggleButtonVisible: {
+      type: Boolean,
+      default: false
+    }
+  },
   setup() {
     const menuVisible = inject < Ref < boolean >> ("menuVisible"); // get
     const toggleMenu = () => {
@@ -41,8 +51,11 @@ export default {
   justify-content: center;
   align-items: center;
 
-  >.logo {
-    margin-right: auto;
+  .logo {
+    &-wrapper {
+      margin-right: auto;
+    }
+
     width: 32px;
     height: 32px;
   }
@@ -58,9 +71,8 @@ export default {
   }
 
   >.toggleAside {
-    width: 24px;
-    height: 24px;
-    background: red;
+    width: 32px;
+    height: 32px;
     position: absolute;
     left: 16px;
     top: 50%;
@@ -73,7 +85,7 @@ export default {
       display: none;
     }
 
-    >.logo {
+    .logo-wrapper {
       margin: 0 auto;
     }
 
