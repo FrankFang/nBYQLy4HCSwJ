@@ -1,5 +1,6 @@
 import path from 'path'
 import fs from 'fs'
+
 const configureServer = [
   async ({ app }) => {
     app.use(async (ctx, next) => {
