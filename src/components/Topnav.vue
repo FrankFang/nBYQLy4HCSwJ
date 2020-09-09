@@ -6,8 +6,9 @@
     </svg>
   </router-link>
   <ul class="menu">
-    <li>文档</li>
-    <li>关于</li>
+    <li>
+      <router-link to="/doc">文档</router-link>
+    </li>
   </ul>
   <svg v-if="toggleButtonVisible" class="toggleAside" @click="toggleMenu">
     <use xlink:href="#icon-menu" />
@@ -40,6 +41,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$green: #02bcb0;
+
 .topnav {
   display: flex;
   padding: 16px;
@@ -64,6 +67,7 @@ export default {
     display: flex;
     white-space: nowrap;
     flex-wrap: nowrap;
+    color: $green;
 
     >li {
       margin: 0 1em;
