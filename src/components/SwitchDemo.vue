@@ -6,9 +6,7 @@
   <div class="demo-actions">
     <Button theme="text" size="small">查看代码</Button>
   </div>
-  <div class="demo-code">
-    <pre v-text="SwitchDemo1.__demo"></pre>
-  </div>
+  <pre class="demo-code" v-text="SwitchDemo1.__demo"></pre>
 </div>
 </template>
 
@@ -45,6 +43,7 @@ $border-color: #d9d9d9;
     border-top: 1px dashed $border-color;
     padding: 4px;
     line-height: 1.1;
+    font-family: Consolas, 'Courier New', Courier, monospace;
   }
 }
 </style>

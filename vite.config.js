@@ -9,12 +9,12 @@ export default {
       const { code, path } = options
       const file = fs.readFileSync(path).toString()
       const parsed = baseParse(file).children.find(n => n.tag === 'demo')
-      const main = file.split(parsed.loc.source).join('')
+      const main = file.split(parsed.loc.source).join('').trim()
       return `export default function (Component) {
         Component.__demo = ${
         JSON.stringify(main)
         }
-      }`
+      }`.trim()
     }
   }
 };
